@@ -37,7 +37,10 @@ export default function DemoPage() {
               <CardDescription>Watch a demonstration of NVision in action</CardDescription>
             </CardHeader>
             <CardContent className="flex justify-center items-center min-h-[400px] bg-black/20 rounded-md">
-              <div className="w-full" style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden" }}>
+              <div
+                className="w-full"
+                style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden" }}
+              >
                 <iframe
                   src="https://www.youtube.com/embed/lvYw3H5Yv7s?si=yGfya87x8WhEZUOF"
                   title="NVision Demo Video"
@@ -50,7 +53,7 @@ export default function DemoPage() {
                     left: 0,
                     width: "100%",
                     height: "100%",
-                    borderRadius: "0.375rem" // matches rounded-md
+                    borderRadius: "0.375rem", // matches rounded-md
                   }}
                 />
               </div>

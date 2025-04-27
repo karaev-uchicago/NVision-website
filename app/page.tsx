@@ -196,8 +196,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute bottom-4 left-4 right-4">
-                </div>
+                <div className="absolute bottom-4 left-4 right-4"></div>
               </div>
             </div>
           </div>
@@ -283,7 +282,7 @@ export default function Home() {
                         src="/sample-analysis.png"
                         alt="Detected NV Centers in FSM Scan"
                         className="object-contain w-full h-full rounded-xl"
-                        style={{ background: 'black' }}
+                        style={{ background: "black" }}
                       />
                     </div>
                   </div>

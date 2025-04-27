@@ -111,18 +111,18 @@ export default function CursorWrapper() {
   useEffect(() => {
     const checkMobile = () => {
       const userAgent = navigator.userAgent || navigator.vendor
-      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
-      
-      const mobileCheck = 
+      const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0
+
+      const mobileCheck =
         /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent) ||
-        (isTouchDevice && window.matchMedia('(pointer:coarse)').matches)
-      
+        (isTouchDevice && window.matchMedia("(pointer:coarse)").matches)
+
       setIsMobile(mobileCheck)
     }
 
     checkMobile()
-    window.addEventListener('resize', checkMobile)
-    return () => window.removeEventListener('resize', checkMobile)
+    window.addEventListener("resize", checkMobile)
+    return () => window.removeEventListener("resize", checkMobile)
   }, [])
 
   return !isMobile ? <AnimatedCursor /> : null
