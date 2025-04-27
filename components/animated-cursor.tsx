@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 export function AnimatedCursor() {
   const innerRef = useRef<HTMLDivElement>(null)
@@ -103,4 +103,27 @@ export function AnimatedCursor() {
       <div ref={outerRef} className="cursor-outer"></div>
     </>
   )
+}
+
+export default function CursorWrapper() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      const userAgent = navigator.userAgent || navigator.vendor
+      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+      
+      const mobileCheck = 
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent) ||
+        (isTouchDevice && window.matchMedia('(pointer:coarse)').matches)
+      
+      setIsMobile(mobileCheck)
+    }
+
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  return !isMobile ? <AnimatedCursor /> : null
 }
